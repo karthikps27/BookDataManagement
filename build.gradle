@@ -1,0 +1,36 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.0.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+group = 'org.karthikps'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-dependencies:2.3.0.RELEASE'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.3.0.RELEASE'
+	implementation 'org.hibernate:hibernate-core:5.4.16.Final'
+	implementation 'org.postgresql:postgresql:42.2.12'
+	implementation 'com.google.guava:guava:29.0-jre'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.0'
+
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	
+	testCompile 'junit:junit:4.12'
+}
+
+test {
+	useJUnitPlatform()
+}
